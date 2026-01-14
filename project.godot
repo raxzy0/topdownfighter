@@ -15,9 +15,17 @@ run/main_scene="uid://b0mrfmcqrerdp"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://sprites/icon.svg"
 
+[autoload]
+
+player="*res://player.gd"
+
 [dotnet]
 
 project/assembly_name="topdownfighter"
+
+[global_group]
+
+enemy=""
 
 [input]
 
