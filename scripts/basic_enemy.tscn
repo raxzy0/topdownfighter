@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://xacsalnhloyd"]
+
+[ext_resource type="Script" uid="uid://2fd8cx2x4mt0" path="res://scripts/enemymovement.gd" id="1_ia33r"]
+[ext_resource type="Texture2D" uid="uid://dkh1ovksdg5ki" path="res://sprites/enemy/idle/frame_0_delay-0.17s.png" id="3_50ut2"]
+[ext_resource type="Texture2D" uid="uid://cn7b83cucrt3r" path="res://sprites/enemy/idle/frame_1_delay-0.17s.png" id="4_xqdje"]
+[ext_resource type="Texture2D" uid="uid://def4btgdb4lrh" path="res://sprites/enemy/idle/frame_2_delay-0.17s.png" id="5_hmnc8"]
+[ext_resource type="Texture2D" uid="uid://rqctxby2ld83" path="res://sprites/enemy/idle/frame_3_delay-0.17s.png" id="6_xo5gj"]
+[ext_resource type="Texture2D" uid="uid://dym2ctn3v7aof" path="res://sprites/enemy/idle/frame_4_delay-0.17s.png" id="7_kud0o"]
+[ext_resource type="Texture2D" uid="uid://du01pk2yh04xk" path="res://sprites/enemy/idle/frame_5_delay-0.17s.png" id="8_voubf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjn04"]
+size = Vector2(73.190216, 105.31343)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_13p8h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_50ut2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xqdje")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hmnc8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xo5gj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kud0o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_voubf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u1hhd"]
+radius = 2.5338135
+
+[node name="basic enemy" type="CharacterBody2D"]
+scale = Vector2(1.9733108, 1.5524807)
+script = ExtResource("1_ia33r")
+
+[node name="enemy" type="Area2D" parent="." groups=["enemy"]]
+position = Vector2(6.5879116, 1.2882535)
+scale = Vector2(0.50676256, 0.6441304)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
+position = Vector2(-11, -2)
+scale = Vector2(0.51919574, 1.23441)
+shape = SubResource("RectangleShape2D_rjn04")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemy"]
+self_modulate = Color(0.9230367, 0.11213633, 0, 1)
+position = Vector2(-4, 2)
+scale = Vector2(0.09350587, 0.07739259)
+sprite_frames = SubResource("SpriteFrames_13p8h")
+animation = &"walk"
+
+[node name="ProgressBar" type="ProgressBar" parent="enemy"]
+offset_left = -61.0
+offset_top = -95.0
+offset_right = 41.0
+offset_bottom = -68.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5202568, -0.6441501)
+scale = Vector2(1.005804, 1.0084785)
+shape = SubResource("CircleShape2D_u1hhd")
+debug_color = Color(0.87444824, 0.000477072, 0.84724134, 0.41960785)

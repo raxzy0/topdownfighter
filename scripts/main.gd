@@ -23,7 +23,6 @@ func _on_player_player_take_damage() -> void:
 	health -=1
 	update_health()
 
-
-func _on_enemy_enemy_death(gold_drop: int) -> void:
-	gold += gold_drop
+func _on_basic_enemy_enemy_death(drops: int) -> void:
+	gold += drops
 	update_health()
